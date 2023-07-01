@@ -7,6 +7,7 @@ from django.db import models
 class User(AbstractUser):
     age = models.IntegerField(null=True, blank=True)
     mobile_number = models.CharField(max_length=15, blank=True, null=True)
+    profile_pic = models.ImageField(upload_to='user_profile_images', null=True, blank=True)
 
     def __str__(self):
         return self.username

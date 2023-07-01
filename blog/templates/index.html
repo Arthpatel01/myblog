@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
+{% block base_css %}
+    <style>
+    .user-profile-pic {
+        width: 50px !important;
+        height: 50px !important;
+        border-radius: 50px;
+    }
+    </style>
+{% endblock %}
+
 {% block main %}
 
     {% comment %}<section class="blog-grid">
@@ -108,7 +118,7 @@
                         <p class="blog-desc">{{ row.content|truncatewords:40 }}</p>
                         <div class="blog-details">
                             <div class="blog-author-img">
-                                <img src="https://rvs-blog-page.vercel.app/assets/img/User-Avatar.png" alt="">
+                                <img src="{{ request.scheme }}://{{ request.get_host }}{{ row.author.profile_pic.url }}" class="user-profile-pic" alt="">
                             </div>
                             <div class="blog-author-details">
                                 <h4 class="blog-author-name">{{ row.author.username }}</h4>
